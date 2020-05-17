@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+        PUBLIC "mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.czf.web.mapper.MusicplayMapper">
+
+    <select id="getMusicPlay" resultType="com.czf.web.entity.MusicPlayInfo">
+        select * from musicplayinfo limit #{page.stpage},#{page.pagesize}
+    </select>
+    <select id="getOneMusicPlayInfo" resultType="com.czf.web.entity.MusicPlayInfo">
+        select * from musicplayinfo where songid = #{songid}
+    </select>
+
+    <select id="getMusicCount" resultType="int">
+        select SUM(songcount) from musicplayinfo
+    </select>
+    <select id="getSearchMusicPlay" resultType="com.czf.web.entity.MusicPlayInfo">
+        select * from musicplayinfo where ${searchparam.search} like CONCAT('%',#{searchparam.searchvalue},'%')
+    </select>
+    <insert id="addMusicPlay" parameterType="com.czf.web.entity.MusicPlayInfo" >
+        insert into musicplayinfo(songid,songname,songauthor,songimg,songcount)
+        values (#{musicplay.songid},#{musicplay.songname},#{musicplay.songauthor},#{musicplay.songimg},#{musicplay.songcount})
+    </insert>
+    <update id="updateMusicPlay">
+        update musicplayinfo
+        set songcount = songcount+1
+        where songid = #{songid}
+    </update>
+</mapper>

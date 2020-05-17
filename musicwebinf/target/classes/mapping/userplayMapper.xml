@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.czf.web.mapper.UserplayinfoMapper">
+
+    <select id="getUserPlay" resultType="com.czf.web.entity.UserPlayInfo">
+        select * from userplayinfo limit #{page.stpage},#{page.pagesize}
+    </select>
+    <select id="getUserPlayInfo" resultType="com.czf.web.entity.UserPlayInfo">
+        select * from userplayinfo where username = #{username} and musicsongid = #{musicsongid}
+    </select>
+
+    <select id="getSearchUserPlay" resultType="com.czf.web.entity.UserPlayInfo">
+        select * from userplayinfo where ${searchparam.search} like CONCAT('%',#{searchparam.searchvalue},'%')
+    </select>
+    <insert id="addUserPlay" parameterType="com.czf.web.entity.UserPlayInfo" >
+        insert into userplayinfo(username,musicsongid,musicname,musicauthor,musicimg,playcount)
+        values (#{userplay.username},#{userplay.musicsongid},#{userplay.musicname},#{userplay.musicauthor},#{userplay.musicimg},#{userplay.playcount})
+    </insert>
+    <update id="updateUserPlay">
+        update userplayinfo
+        set playcount = playcount+1
+        where id = #{id}
+    </update>
+</mapper>
