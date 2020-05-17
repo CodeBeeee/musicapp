@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBlack"
+    tools:context=".View.Activity.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <android.support.design.widget.TabLayout
+            android:id="@+id/myTab"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorBlack"
+            app:tabIndicatorColor="@color/colorAccent"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextColor="@color/colorWhite"
+            >
+        </android.support.design.widget.TabLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+     <LinearLayout
+         android:id="@+id/playdd"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_weight="11"
+         android:clickable="true"
+         android:orientation="horizontal"
+         android:background="@color/colorWhite"
+         >
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_weight="5"
+             android:gravity="center"
+
+             >
+
+             <com.xuexiang.xui.widget.imageview.RadiusImageView
+                 android:id="@+id/ablemimg"
+                 android:layout_width="50dp"
+                 android:layout_height="50dp"
+                 android:clickable="true"
+                 android:background="@drawable/ic_album_black_24dp"
+                 app:riv_border_color="@color/xui_config_color_gray_6"
+                 app:riv_is_circle="true"
+                 app:riv_selected_border_color="@color/xui_config_color_gray_4"
+                 app:riv_selected_border_width="1px"
+                 app:riv_selected_mask_color="@color/xui_config_color_gray_8" />
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:orientation="horizontal"
+             android:background="@color/colorWhite"
+             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/musictitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="asdasdasdas"
+                    android:gravity="center|left"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="35px"
+                    >
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/musicartist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="123123"
+                    android:gravity="center|left"
+                    android:padding="5px"
+                    android:background="@color/colorWhite"
+                    android:layout_weight="1"
+                    >
+
+                </TextView>
+            </LinearLayout>
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_weight="3"
+                 android:layout_gravity="center"
+                 android:gravity="center"
+                 >
+                 <ImageView
+                     android:id="@+id/playpause"
+                     android:clickable="true"
+                     android:layout_width="36dp"
+                     android:layout_height="36dp"
+                     android:background="@drawable/ic_play_redcircle_outline_black_24dp"
+                     />
+             </LinearLayout>
+         </LinearLayout>
+     </LinearLayout>
+</LinearLayout>
